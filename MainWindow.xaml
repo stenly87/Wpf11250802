@@ -1,0 +1,32 @@
+﻿<Window x:Class="Wpf11250802.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wpf11250802"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"
+        MouseDown="TestLeftMouse" 
+        PreviewKeyDown="TestKeyDown"
+        >
+    <Grid PreviewKeyDown="TestKeyDown" MouseDown="TestLeftMouse" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <StackPanel MouseLeave="TestLeave" PreviewKeyDown="TestKeyDown" MouseDown="TestLeftMouse"  Margin="5">
+            <Border MouseLeave="TestLeave" MouseDown="TestLeftMouse"  Margin="5" BorderBrush="Red" BorderThickness="2">
+                <StackPanel MouseLeave="TestLeave" Background="Blue" MouseDown="TestLeftMouse" >
+                    <Button AllowDrop="True" Drop="Button_Drop" MouseLeave="TestLeave" MouseDown="TestLeftMouse"   Margin="5" Padding="5" Content="Жми меня"/>
+                </StackPanel>
+            </Border>
+            <TextBox PreviewDragLeave="TextBox_DragLeave" PreviewKeyDown="TestKeyDown" />
+        </StackPanel>
+
+        <StackPanel Grid.Column="1">
+            <Button Content="Чистка" Click="ClearData"/>
+            <ListBox Height="500" ItemsSource="{Binding EventsData}"/>
+        </StackPanel>
+    </Grid>
+</Window>
